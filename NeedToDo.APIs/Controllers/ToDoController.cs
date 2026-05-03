@@ -1,4 +1,5 @@
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NeedToDo.APIs.Data;
 using NeedToDo.APIs.Models;
@@ -15,6 +16,7 @@ public class ToDoController : ControllerBase
         _dbContext = toDoDBContext;
     }
 
+    [Authorize]
     [HttpGet(Name = "GetToDo")]
     public IEnumerable<ToDo> Get()
     {

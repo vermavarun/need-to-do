@@ -1,8 +1,8 @@
 @NeedToDo.APIs_HostAddress = http://localhost:5037
 
-GET {{NeedToDo.APIs_HostAddress}}/ToDo/
+GET {{NeedToDo.APIs_HostAddress}}/ToDo
 Accept: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJqdGkiOiI2ZTM5MDY1NC1hNzJhLTQ2MTYtYTMwYy1jMjViOTc4MzQyYWYiLCJleHAiOjE3Nzc4MTAwNjAsImlzcyI6InlvdXItYXBwLWlzc3VlciIsImF1ZCI6InlvdXItYXBwLWF1ZGllbmNlIn0.t1D1b1jMoND5i-sPGG48SFbuANsLCMoCorJ2KbJX6oA
 ###
 
 POST {{NeedToDo.APIs_HostAddress}}/ToDo
@@ -14,3 +14,12 @@ Accept: application/json
 }
 
 ###
+
+POST {{NeedToDo.APIs_HostAddress}}/Auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "admin",
+  "password": "password"
+}
