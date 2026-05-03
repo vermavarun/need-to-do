@@ -11,9 +11,11 @@ namespace NeedToDo.APIs.Controllers;
 public class ToDoController : ControllerBase
 {
     private  ToDoDBContext _dbContext;
-    public ToDoController(ToDoDBContext toDoDBContext)
+    private TextTransformService _textTransformService;
+    public ToDoController(ToDoDBContext toDoDBContext,TextTransformService textTransformService)
     {
         _dbContext = toDoDBContext;
+        _textTransformService = textTransformService;
     }
 
     [Authorize]
@@ -28,7 +30,7 @@ public class ToDoController : ControllerBase
     [HttpPost(Name = "AddTodo")]
     public HttpStatusCode Post(ToDo todo)
     {
-        _dbContext.ToDos.Add(new ToDo(){Title=todo.Title});
+        _dbContext.ToDos.Add(new ToDo(){Title=_textTransformService.TransformString(todo.Title)});
         _dbContext.SaveChanges();
         return HttpStatusCode.Accepted;
     }
