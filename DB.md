@@ -1,5 +1,7 @@
+```sql
 SQl Server localDB
 ===================
+
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<>" -p 1433:1433 --name sql1 -d mcr.microsoft.com/mssql/server:2019-latest
 
 DB Schema
@@ -22,3 +24,4 @@ ALTER TABLE [dbo].[todos] ADD  CONSTRAINT [PK_todos] PRIMARY KEY CLUSTERED
 GO
 ALTER TABLE [dbo].[todos] ADD  CONSTRAINT [DEFAULT_todos_is_completed]  DEFAULT ((0)) FOR [is_completed]
 GO
+```
