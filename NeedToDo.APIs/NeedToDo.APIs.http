@@ -1,0 +1,16 @@
+@NeedToDo.APIs_HostAddress = http://localhost:5037
+
+GET {{NeedToDo.APIs_HostAddress}}/ToDo/
+Accept: application/json
+
+###
+
+POST {{NeedToDo.APIs_HostAddress}}/ToDo
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Buy groceries"
+}
+
+###
